@@ -21,6 +21,13 @@ pipeline {
         stage('build') {
             steps {
                 echo 'Build stage'
+                echo "choiceExample from build stage : ${params.Environment}"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy stage'
+                echo "choiceExample from deploy stage : ${params.Environment}"
             }
         } 
     }
