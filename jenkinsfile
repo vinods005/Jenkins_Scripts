@@ -17,6 +17,10 @@ pipeline {
                 echo "choiceExample: ${params.Environment}"
                 echo "ChoiceExample: ${params.jenkins_url}"
                 //echo "passwordExample: ${params.passwordExample}"
+                script{
+                scripts = load "Jenkins_Scripts/jenkins_job.dsl ${params.HOSTEDZONEID} ${params.REGION}"
+                scripts.FolderList()
+                }
             }
         }
         stage('build') {
