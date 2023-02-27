@@ -16,7 +16,7 @@ pipeline {
                 //echo "stringExample: ${params.stringExample}"
                 //echo "textExample: ${params.textExample}"
                 echo "choiceExample: ${params.Environment}"
-                echo "ChoiceExample: ${params.jenkins_url}
+                echo "ChoiceExample: ${params.jenkins_url}"
                 //echo "passwordExample: ${params.passwordExample}"
             }
         }
@@ -24,14 +24,14 @@ pipeline {
             steps {
                 echo 'Build stage'
                 echo "choiceExample from build stage : ${params.Environment}"
-                echo "ChoiceExample from build stage : ${params.jenkins_url}
+                echo "ChoiceExample from build stage : ${params.jenkins_url}"
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploy stage'
                 echo "choiceExample from deploy stage : ${params.Environment}"
-                echo "ChoiceExample from deploy stage : ${params.jenkins_url}
+                echo "ChoiceExample from deploy stage : ${params.jenkins_url}"
             }
         } 
     }
