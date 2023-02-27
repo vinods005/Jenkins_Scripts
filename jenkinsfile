@@ -5,7 +5,7 @@ pipeline {
         choice(choices: ['Dev', 'Prod'], description: 'What environment required?', name: 'Environment')
         choice(choices: ['dev_jenkins_url','prod_jenkins_url'], description: 'Jenkins URL?', name: 'jenkins_url')
         string(defaultValue: "HOSTEDZONEID", description: 'Enter Hosted Zone Details?', name: 'HOSTEDZONEID')
-        text(defaultValue: "Enter Hosted Zone Here\n", description: "Text", name: "textExample")
+        string(defaultValue: "REGION", description: "Enter Region Here", name: "REGION")
         //choice(choices: 'US-EAST-1\nUS-WEST-2', description: 'What AWS region?', name: 'choiceExample')
         //password(defaultValue: "Password", description: "Password Parameter", name: "passwordExample")
     }
@@ -13,7 +13,7 @@ pipeline {
         stage("foo") {
             steps {
                 echo "stringExample: ${params.HOSTEDZONEID}"
-                echo "textExample: ${params.textExample}"
+                echo "stringExample: ${params.REGION}"
                 echo "choiceExample: ${params.Environment}"
                 echo "ChoiceExample: ${params.jenkins_url}"
                 //echo "passwordExample: ${params.passwordExample}"
@@ -25,7 +25,7 @@ pipeline {
                 echo "choiceExample from build stage : ${params.Environment}"
                 echo "ChoiceExample from build stage : ${params.jenkins_url}"
                 echo "stringExample from build stage : ${params.HOSTEDZONEID}"
-                echo "textExample from build stage   : ${params.textExample}"
+                echo "stringExample from build stage   : ${params.REGION}"
             }
         }
         stage('Deploy') {
@@ -34,7 +34,7 @@ pipeline {
                 echo "choiceExample from deploy stage : ${params.Environment}"
                 echo "ChoiceExample from deploy stage : ${params.jenkins_url}"
                 echo "stringExample from deploy stage : ${params.HOSTEDZONEID}"
-                echo "textExample from deploy stage   : ${params.textExample}"
+                echo "stringExample from deploy stage   : ${params.REGION}"
             }
         } 
     }
