@@ -20,5 +20,10 @@ pipeline {
                 //echo "passwordExample: ${params.passwordExample}"
             }
         }
+        stage("hello stage") {
+            steps {
+                sh 'echo "Hello world"'
+            }
+        }  
     }
 }
