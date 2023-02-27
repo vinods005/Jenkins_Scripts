@@ -4,17 +4,16 @@ pipeline {
     parameters {        
         choice(choices: ['Dev', 'Prod'], description: 'What environment required?', name: 'Environment')
         choice(choices: ['dev_jenkins_url','prod_jenkins_url'], description: 'Jenkins URL?', name: 'jenkins_url')
-        //string(defaultValue: "TEST", description: 'What environment?', name: 'stringExample')
-        //text(defaultValue: "This is a multiline\n text", description: "Multiline Text", name: "textExample")
+        string(defaultValue: "HOSTEDZONEID", description: 'Enter Hosted Zone Details?', name: 'HOSTEDZONEID')
+        text(defaultValue: "Enter Hosted Zone Here\n", description: "Text", name: "textExample")
         //choice(choices: 'US-EAST-1\nUS-WEST-2', description: 'What AWS region?', name: 'choiceExample')
         //password(defaultValue: "Password", description: "Password Parameter", name: "passwordExample")
     }
     stages {
         stage("foo") {
             steps {
-                //echo "booleanExample: ${params.booleanExample}"
-                //echo "stringExample: ${params.stringExample}"
-                //echo "textExample: ${params.textExample}"
+                echo "stringExample: ${params.HOSTEDZONEID}"
+                echo "textExample: ${params.textExample}"
                 echo "choiceExample: ${params.Environment}"
                 echo "ChoiceExample: ${params.jenkins_url}"
                 //echo "passwordExample: ${params.passwordExample}"
@@ -25,6 +24,8 @@ pipeline {
                 echo 'Build stage'
                 echo "choiceExample from build stage : ${params.Environment}"
                 echo "ChoiceExample from build stage : ${params.jenkins_url}"
+                echo "stringExample from build stage : ${params.HOSTEDZONEID}"
+                echo "textExample from build stage   : ${params.textExample}"
             }
         }
         stage('Deploy') {
@@ -32,6 +33,8 @@ pipeline {
                 echo 'Deploy stage'
                 echo "choiceExample from deploy stage : ${params.Environment}"
                 echo "ChoiceExample from deploy stage : ${params.jenkins_url}"
+                echo "stringExample from deploy stage : ${params.HOSTEDZONEID}"
+                echo "textExample from deploy stage   : ${params.textExample}"
             }
         } 
     }
