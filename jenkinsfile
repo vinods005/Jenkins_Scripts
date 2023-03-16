@@ -19,7 +19,9 @@ pipeline {
                 //echo "passwordExample: ${params.passwordExample}"
                 echo "Workspace Environment: ${WORKSPACE}"
                 script{
-                echo "workspace = ${WORKSPACE}"
+                sh """
+                sudo chmod 777 "${WORKSPACE}/Jenkins_Scripts/jenkins_job.dsl
+                """
                 scripts = load "${WORKSPACE}/Jenkins_Scripts/jenkins_job.dsl '${params.HOSTEDZONEID}' '${params.REGION}'"
                 scripts.FolderList()
                 }
