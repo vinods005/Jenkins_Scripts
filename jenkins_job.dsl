@@ -6,5 +6,4 @@ def FolderList() {
    //println("Enter Environment",$Environment)
    //println("Enter Build",$build)
 }
-
-FolderList()
+//FolderList()
