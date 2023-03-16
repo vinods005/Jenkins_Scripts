@@ -23,8 +23,10 @@ pipeline {
                 sh """                
                 chmod 777 "${WORKSPACE}/jenkins_job.dsl"
                 """
+                try {
                 scripts = load "${WORKSPACE}/jenkins_job.dsl"
-                scripts.FolderList()
+                scripts.FolderList() } catch (Exception e) { 
+                echo 'java.lang.NullPointerException' e.tostring() }
                  }
              }
          }        
