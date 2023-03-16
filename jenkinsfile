@@ -20,7 +20,7 @@ pipeline {
                 echo "Workspace Environment: ${WORKSPACE}"
                 script{
                 echo "workspace = ${WORKSPACE}"
-                scripts = load "${WORKSPACE}/jenkins_job.dsl '${params.HOSTEDZONEID}' '${params.REGION}'"
+                scripts = load "${WORKSPACE}/Jenkins_Scripts/jenkins_job.dsl '${params.HOSTEDZONEID}' '${params.REGION}'"
                 scripts.FolderList()
                 }
             }
