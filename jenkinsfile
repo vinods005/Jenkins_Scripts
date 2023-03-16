@@ -26,7 +26,7 @@ pipeline {
                 try {
                 scripts = load "${WORKSPACE}/jenkins_job.dsl"
                 scripts.FolderList() } catch (Exception e) { 
-                echo 'java.lang.NullPointerException' e.tostring() }
+                echo 'java.lang.NullPointerException:' e.tostring() }
                  }
              }
          }        
