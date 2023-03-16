@@ -22,7 +22,7 @@ pipeline {
                 sh """                
                 chmod 777 "${WORKSPACE}/jenkins_job.dsl"
                 """
-                scripts = load "${WORKSPACE}/jenkins_job.dsl '${params.HOSTEDZONEID}' '${params.REGION}'"
+                scripts = load "${WORKSPACE}/jenkins_job.dsl"
                 scripts.FolderList()
                 }
             }
