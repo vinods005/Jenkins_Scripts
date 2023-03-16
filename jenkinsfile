@@ -20,7 +20,7 @@ pipeline {
                 echo "Workspace Environment: ${WORKSPACE}"
                 script{
                 sh """
-                find / -name "jenkins_job.dsl"
+                //find / -name "jenkins_job.dsl"
                 chmod 777 "${WORKSPACE}/jenkins_job.dsl"
                 """
                 scripts = load "${WORKSPACE}/jenkins_job.dsl '${params.HOSTEDZONEID}' '${params.REGION}'"
