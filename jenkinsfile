@@ -19,7 +19,7 @@ pipeline {
                 //echo "passwordExample: ${params.passwordExample}"
                 echo "Workspace Environment: ${WORKSPACE}"
                 script{
-                scripts = load "${WORKSPACE}/Jenkins_Scripts/jenkins_job.dsl '${params.HOSTEDZONEID}' '${params.REGION}'"
+                scripts = load "${WORKSPACE}/Vinod/pipelinejob/Jenkins_Scripts/jenkins_job.dsl '${params.HOSTEDZONEID}' '${params.REGION}'"
                 scripts.FolderList()
                 }
             }
